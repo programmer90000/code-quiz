@@ -5,7 +5,8 @@ If the user selects the correct answer, display a message saying that the answer
 If the user selects the incorrect answer, display a message saying that the answer was incorrect. Subtract 15 seconds from the total time
 Repeat lines 2 to 5 a total of 5 times
 After the user has answered all of the questions, display the users score (The amount of time remaining) and ask the user to enter his initials
-Save the score
+Save the score to the local storage
 When the user clicks submit, all of the previous scores in the local storage should be shown in order of highest to lowest. There should also be a button to go back and a button to clear the scores
 If the user clicks the go back button, go back to step 1
-If the user clicks the clear scores button, all of the previous buttons will be removed. The user should remain on the same page until he clicks go back
+If the user clicks the clear scores button, all of the previous scores will be removed. The user should remain on the same page until the user clicks go back
+If the user clicks go back, go back to step 1
