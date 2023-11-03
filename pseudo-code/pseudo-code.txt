@@ -1,0 +1,11 @@
+Display a button. When the user clicks this button, start a timer which is 75 seconds long
+Display a question. Underneath this question, there should be 4 possible answers
+Allow the user to select 1 of these answers
+If the user selects the correct answer, display a message saying that the answer was correct
+If the user selects the incorrect answer, display a message saying that the answer was incorrect. Subtract 15 seconds from the total time
+Repeat lines 2 to 5 a total of 5 times
+After the user has answered all of the questions, display the users score (The amount of time remaining) and ask the user to enter his initials
+Save the score
+When the user clicks submit, all of the previous scores in the local storage should be shown in order of highest to lowest. There should also be a button to go back and a button to clear the scores
+If the user clicks the go back button, go back to step 1
+If the user clicks the clear scores button, all of the previous buttons will be removed. The user should remain on the same page until he clicks go back
