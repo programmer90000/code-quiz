@@ -63,6 +63,9 @@ function displayQuestion(arr) {
 
         const answerButtons = questions.querySelectorAll("button");
         answerButtons.forEach((button) => {
+            const text = button.textContent;
+            button.setAttribute("btnText", text);
+            
             button.addEventListener("click", () => {
                 questions.innerHTML = "";
                 index++;
