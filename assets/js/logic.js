@@ -13,6 +13,8 @@ startButton.addEventListener('click', function () {
             document.getElementById('time').innerText = "";
         }
     },1000)
+
+    findCorrectAnswer(questions);
 })
 
 function shuffleArray (arr) {
@@ -21,3 +23,12 @@ function shuffleArray (arr) {
         [arr[i-1], arr[j]] = [arr[j], arr[i-1]];
     }
 }
+
+function findCorrectAnswer (arr) {
+    for (let i = 0; i < arr.length; i++) {
+        let questionArray = Object.values(arr[i]);
+        let correctAnswerIndex = questionArray[2];
+        let answersArray = questionArray[1];
+        let correctAnswer = answersArray[correctAnswerIndex];
+    }
+};
