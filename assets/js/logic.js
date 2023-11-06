@@ -1,6 +1,7 @@
 let startButton = document.getElementById('start');
 let wrapper = document.getElementsByClassName('wrapper')[0];
 let startingPage = document.getElementById("start-screen");
+var correctAnswer = [];
 
 startButton.addEventListener('click', function () {
     shuffleArray(questions);
@@ -32,7 +33,7 @@ function findCorrectAnswer(arr) {
         let questionArray = Object.values(arr[i]);
         let correctAnswerIndex = questionArray[2];
         let answersArray = questionArray[1];
-        let correctAnswer = answersArray[correctAnswerIndex];
+        correctAnswer.push(answersArray[correctAnswerIndex]);
     }
 };
 
@@ -65,8 +66,25 @@ function displayQuestion(arr) {
         answerButtons.forEach((button) => {
             const text = button.textContent;
             button.setAttribute("btnText", text);
-            
+
             button.addEventListener("click", () => {
+                answerText = button.getAttribute("btnText");
+                if (answerText === correctAnswer[index]) {
+                    const correct = document.createElement("h4");
+                    correct.innerText = "Correct!";
+                    setTimeout(() => {
+                        correct.remove();
+                    }, 500);
+                    wrapper.appendChild(correct);
+                } else {
+                    const wrong = document.createElement("h4");
+                    wrong.innerText = "Wrong!";
+                    setTimeout(() => {
+                        wrong.remove();
+                    }, 500);
+                    wrapper.appendChild(wrong);
+                }
+
                 questions.innerHTML = "";
                 index++;
                 displayNextQuestion();
