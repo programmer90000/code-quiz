@@ -3,24 +3,6 @@ let wrapper = document.getElementsByClassName('wrapper')[0];
 let startingPage = document.getElementById("start-screen");
 var correctAnswer = [];
 
-startButton.addEventListener('click', function () {
-    shuffleArray(questions);
-    var timeLeft = 75;
-    var timeInterval = setInterval(function () {
-        startingPage.classList.add("hide");
-        document.getElementById('time').innerText = timeLeft;
-        timeLeft--;
-        if (timeLeft === 0) {
-            clearInterval(timeInterval);
-            document.getElementById('time').innerText = "";
-        }
-    },1000)
-
-    findCorrectAnswer(questions);
-    clearScreen();
-    displayQuestion(questions);
-})
-
 function shuffleArray(arr) {
     for (let i = 1; i < arr.length; i++) {
         let j = Math.floor(Math.random() * i);
@@ -93,3 +75,22 @@ function displayQuestion(arr) {
     };
     displayNextQuestion();
 }
+
+startButton.addEventListener('click', function () {
+    shuffleArray(questions);
+    var timeLeft = 75;
+    var timeInterval = setInterval(function () {
+        startingPage.classList.add("hide");
+        document.getElementById('time').innerText = timeLeft;
+        timeLeft--;
+        if (timeLeft === 0) {
+            clearInterval(timeInterval);
+            document.getElementById('time').innerText = "";
+        }
+    },1000)
+
+    findCorrectAnswer(questions);
+    clearScreen();
+    displayQuestion(questions);
+    clearScreen();
+})
