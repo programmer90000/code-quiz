@@ -15,16 +15,17 @@ startButton.addEventListener('click', function () {
     },1000)
 
     findCorrectAnswer(questions);
+    clearScreen();
 })
 
-function shuffleArray (arr) {
+function shuffleArray(arr) {
     for (let i = 1; i < arr.length; i++) {
         let j = Math.floor(Math.random() * i);
         [arr[i-1], arr[j]] = [arr[j], arr[i-1]];
     }
 }
 
-function findCorrectAnswer (arr) {
+function findCorrectAnswer(arr) {
     for (let i = 0; i < arr.length; i++) {
         let questionArray = Object.values(arr[i]);
         let correctAnswerIndex = questionArray[2];
@@ -32,3 +33,7 @@ function findCorrectAnswer (arr) {
         let correctAnswer = answersArray[correctAnswerIndex];
     }
 };
+
+function clearScreen() {
+    document.getElementByClassName("wrapper".innerText = "");
+}
