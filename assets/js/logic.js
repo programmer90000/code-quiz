@@ -106,6 +106,15 @@ function runProgram() {
 
 function displayResults () {
     document.getElementById("end-screen").style.display = "block";
+    let initials = document.getElementById("initials");
+    document.getElementById("submit").onclick = function () {
+        if(initials.value !== "") {
+            let scores = JSON.parse(localStorage.getItem("scores")) || [];
+            let initialsAndScore = {initials: initials.value, score: score};
+            scores.push(initialsAndScore);
+            localStorage.setItem("scores", JSON.stringify(scores));
+        }
+    }
 }
 
 runProgram();
