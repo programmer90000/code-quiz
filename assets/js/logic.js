@@ -2,6 +2,7 @@ let startButton = document.getElementById('start');
 let wrapper = document.getElementsByClassName('wrapper')[0];
 let startingPage = document.getElementById("start-screen");
 var correctAnswer = [];
+let index = 0;
 
 function shuffleArray(arr) {
     for (let i = 1; i < arr.length; i++) {
@@ -26,7 +27,6 @@ function clearScreen() {
 function displayQuestion(arr) {
     let questions = document.getElementById('questions');
     questions.classList.remove("hide");
-    let index = 0;
     const displayNextQuestion = () => {
         if (index >= arr.length) {
             return;
@@ -76,21 +76,32 @@ function displayQuestion(arr) {
     displayNextQuestion();
 }
 
-startButton.addEventListener('click', function () {
-    shuffleArray(questions);
-    var timeLeft = 75;
-    var timeInterval = setInterval(function () {
-        startingPage.classList.add("hide");
-        document.getElementById('time').innerText = timeLeft;
-        timeLeft--;
-        if (timeLeft === 0) {
-            clearInterval(timeInterval);
-            document.getElementById('time').innerText = "";
-        }
-    },1000)
+function runProgram() {
+    startButton.addEventListener('click', function () {
+        shuffleArray(questions);
+        var timeLeft = 75;
+        var timeInterval = setInterval(function () {
+            startingPage.classList.add("hide");
+            document.getElementById('time').innerText = timeLeft;
+            timeLeft--;
+            if (timeLeft === 0 || index >= questions.length) {
+                clearInterval(timeInterval);
+                document.getElementById('time').innerText = "";
+                clearScreen();
+                displayResults();
+            }
+        },1000)
 
-    findCorrectAnswer(questions);
-    clearScreen();
-    displayQuestion(questions);
-    clearScreen();
-})
+        findCorrectAnswer(questions),
+        clearScreen(),
+        displayQuestion(questions),
+        clearScreen();
+
+    })
+}
+
+function displayResults () {
+    document.getElementById("end-screen").style.display = "block";
+}
+
+runProgram();
