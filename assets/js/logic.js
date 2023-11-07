@@ -1,3 +1,4 @@
+// Variables
 let startButton = document.getElementById('start');
 let wrapper = document.getElementsByClassName('wrapper')[0];
 let startingPage = document.getElementById("start-screen");
@@ -33,6 +34,7 @@ function displayQuestion(arr) {
         if (index >= arr.length) {
             return;
         }
+        // Display the question and answers
         const question = arr[index];
         const element = document.createElement("h3");
         element.innerText = question.question;
@@ -50,7 +52,7 @@ function displayQuestion(arr) {
         answerButtons.forEach((button) => {
             const text = button.textContent;
             button.setAttribute("btnText", text);
-
+            // Compare the users answer to the correct answer
             button.addEventListener("click", () => {
                 answerText = button.getAttribute("btnText");
                 if (answerText === correctAnswer[index]) {
@@ -102,6 +104,7 @@ function runProgram() {
         clearScreen();
 }
 
+// Display the results on the highscores page
 function displayResults () {
     document.getElementById("end-screen").style.display = "block";
     let initials = document.getElementById("initials");
