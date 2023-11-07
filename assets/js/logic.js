@@ -109,6 +109,7 @@ function displayResults () {
     let initials = document.getElementById("initials");
     document.getElementById("submit").onclick = function () {
         if(initials.value !== "") {
+            document.getElementById("submit").disabled = true;
             let scores = JSON.parse(localStorage.getItem("scores")) || [];
             let initialsAndScore = {initials: initials.value, score: score};
             scores.push(initialsAndScore);
