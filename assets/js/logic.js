@@ -4,6 +4,7 @@ let startingPage = document.getElementById("start-screen");
 var correctAnswer = [];
 let index = 0;
 let score = 0;
+let timeLeft = 75;
 
 function shuffleArray(arr) {
     for (let i = 1; i < arr.length; i++) {
@@ -61,6 +62,7 @@ function displayQuestion(arr) {
                     }, 500);
                     wrapper.appendChild(correct);
                 } else {
+                    timeLeft -= 5;
                     const wrong = document.createElement("h4");
                     wrong.innerText = "Wrong!";
                     setTimeout(() => {
@@ -82,7 +84,6 @@ function runProgram() {
     startButton.addEventListener('click', function () {
         shuffleArray(questions);
         startingPage.classList.add("hide");
-        var timeLeft = 75;
         var timeInterval = setInterval(function () {
             document.getElementById('time').innerText = timeLeft;
             timeLeft--;
