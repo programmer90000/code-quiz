@@ -64,7 +64,7 @@ function displayQuestion(arr) {
                     }, 500);
                     wrapper.appendChild(correct);
                 } else {
-                    timeLeft -= 5;
+                    timeLeft -= 10;
                     const wrong = document.createElement("h4");
                     wrong.innerText = "Wrong!";
                     setTimeout(() => {
