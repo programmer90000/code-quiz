@@ -3,6 +3,7 @@ let wrapper = document.getElementsByClassName('wrapper')[0];
 let startingPage = document.getElementById("start-screen");
 var correctAnswer = [];
 let index = 0;
+let score = 0;
 
 function shuffleArray(arr) {
     for (let i = 1; i < arr.length; i++) {
@@ -52,6 +53,7 @@ function displayQuestion(arr) {
             button.addEventListener("click", () => {
                 answerText = button.getAttribute("btnText");
                 if (answerText === correctAnswer[index]) {
+                    score += 1;
                     const correct = document.createElement("h4");
                     correct.innerText = "Correct!";
                     setTimeout(() => {
@@ -86,9 +88,11 @@ function runProgram() {
             timeLeft--;
             if (timeLeft === 0 || index >= questions.length) {
                 clearInterval(timeInterval);
-                document.getElementById('time').innerText = "";
+                document.getElementById('time').innerText = 0;
+                document.getElementById("questions").innerHTML = "";
                 clearScreen();
                 displayResults();
+                document.getElementById("final-score").innerText = score;
             }
         },1000)
 
