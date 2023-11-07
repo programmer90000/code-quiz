@@ -81,9 +81,9 @@ function displayQuestion(arr) {
 function runProgram() {
     startButton.addEventListener('click', function () {
         shuffleArray(questions);
+        startingPage.classList.add("hide");
         var timeLeft = 75;
         var timeInterval = setInterval(function () {
-            startingPage.classList.add("hide");
             document.getElementById('time').innerText = timeLeft;
             timeLeft--;
             if (timeLeft === 0 || index >= questions.length) {
