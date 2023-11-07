@@ -1,7 +1,5 @@
 let newScore = JSON.parse(localStorage.getItem("scores"));
 
-console.log(newScore);
-
 newScore.sort((a, b) => b.score - a.score);
 
 for (let i = 0; i < newScore.length; i++) {
@@ -10,4 +8,7 @@ for (let i = 0; i < newScore.length; i++) {
     document.getElementById("highscores").appendChild(scoreElement);
 }
 
-console.log(initialsAndScore);
+document.getElementById("clear").onclick = function () {
+    localStorage.removeItem("scores");
+    document.getElementById("highscores").innerHTML = "";
+}
