@@ -116,7 +116,7 @@ function displayResults () {
     }
 }
 
-if (startButton) {
+if (startButton != null) {
     startButton.addEventListener('click', function () {
         runProgram();
     });
