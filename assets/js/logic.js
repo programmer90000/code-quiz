@@ -81,7 +81,6 @@ function displayQuestion(arr) {
 }
 
 function runProgram() {
-    startButton.addEventListener('click', function () {
         shuffleArray(questions);
         startingPage.classList.add("hide");
         var timeInterval = setInterval(function () {
@@ -101,8 +100,6 @@ function runProgram() {
         clearScreen(),
         displayQuestion(questions),
         clearScreen();
-
-    })
 }
 
 function displayResults () {
@@ -119,4 +116,8 @@ function displayResults () {
     }
 }
 
-runProgram();
+if (startButton) {
+    startButton.addEventListener('click', function () {
+        runProgram();
+    });
+}
