@@ -115,6 +115,7 @@ function displayResults () {
             let initialsAndScore = {initials: initials.value, score: score};
             scores.push(initialsAndScore);
             localStorage.setItem("scores", JSON.stringify(scores));
+            document.location.href = "highscores.html";
         }
     }
 }
