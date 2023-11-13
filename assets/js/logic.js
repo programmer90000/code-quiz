@@ -88,7 +88,7 @@ function runProgram() {
         var timeInterval = setInterval(function () {
             document.getElementById('time').innerText = timeLeft;
             timeLeft--;
-            if (timeLeft === 0 || index >= questions.length) {
+            if (timeLeft <= 0 || index >= questions.length) {
                 clearInterval(timeInterval);
                 document.getElementById('time').innerText = 0;
                 document.getElementById("questions").innerHTML = "";
