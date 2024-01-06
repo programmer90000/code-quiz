@@ -18,7 +18,7 @@ The HTML and CSS for this page were given to me by the edX bootcamp: Skills Boot
 
 
 ## Installation
-Click on this link: https://programmer90000.github.io/console-finances/
+Click on this link: https://programmer90000.github.io/code-quiz/
 
 ## License
 GNU GENERAL PUBLIC LICENSE (GPL) version 3.0
